@@ -1,5 +1,5 @@
 # autotests
-Test framework for learning test automatinon
+Test framework for learning test automation
 
 # technologies
  - Java
