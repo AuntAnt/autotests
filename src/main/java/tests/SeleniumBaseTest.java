@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
@@ -12,12 +13,14 @@ import java.time.Duration;
 /**
  * Base test for UI Selenium
  */
+@Log4j2
 public abstract class SeleniumBaseTest {
 
     protected WebDriver driver;
 
     @BeforeSuite
     public void setUp() {
+        log.info("WebDriver initializing");
         WebDriverManager.chromiumdriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -28,6 +31,7 @@ public abstract class SeleniumBaseTest {
 
     @AfterSuite
     public void tearDown() {
+        log.info("Close browser and WebDriver");
         driver.close();
         driver.quit();
     }
