@@ -31,4 +31,14 @@ public abstract class BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(x -> x.findElement(element).getText().length() != 0);
     }
+
+    /**
+     * Checking by title that the expected page is open
+     *
+     * @param expectedTitle expected page title
+     * @return is expected page open or not
+     */
+    protected boolean atPage(String expectedTitle) {
+        return driver.getTitle().equals(expectedTitle);
+    }
 }

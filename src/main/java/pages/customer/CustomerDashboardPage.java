@@ -7,16 +7,19 @@ import pages.BasePage;
 
 public class CustomerDashboardPage extends BasePage {
 
-    private static final String NAME_XPATH = "//strong[@style='text-transform:capitalize']";
+    private static final String USER_NAME_XPATH = "//strong[@style='text-transform:capitalize']";
 
-    @FindBy(xpath = NAME_XPATH)
+    @FindBy(xpath = USER_NAME_XPATH)
     private WebElement name;
 
     @FindBy(css = ".author__meta")
     private WebElement greeting;
 
     public CustomerDashboardPage() {
-        waitTillTextAppears(By.xpath(NAME_XPATH));
+        if (atPage("Dashboard - PHPTRAVELS")) {
+            waitTillTextAppears(By.xpath(USER_NAME_XPATH));
+        } else
+            throw new IllegalStateException("Dashboard page is not open");
     }
 
     public String getUserName() {
