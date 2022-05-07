@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.customer.CustomerLoginPage;
@@ -17,6 +18,7 @@ public class DemoMainPage extends BasePage {
         driver.get(ConfReader.getUrl());
     }
 
+    @Step("Click on login button")
     public CustomerLoginPage customerLogin() {
         customerLoginButton.click();
         return new CustomerLoginPage();
