@@ -29,6 +29,8 @@ public class CustomerLoginPage extends BasePage {
                 driver.switchTo().window(tab);
             }
         }
+
+        if (!atPage(TITLE)) throw new IllegalStateException("Login page is not open");
     }
 
     @Step("Enter user credentials {user}")
@@ -39,6 +41,5 @@ public class CustomerLoginPage extends BasePage {
             return new CustomerDashboardPage();
         } else
             throw new IllegalStateException("Login page is not open");
-
     }
 }

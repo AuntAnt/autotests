@@ -6,3 +6,4 @@ Test framework for learning test automation
  - TestNG
  - Selenium
  - Maven
+ - Allure
